@@ -1,38 +1,147 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #f2f2f2;
+  margin-bottom:300px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+  font-size: 2rem;
 }
+.logo {
+  width:30%;
+}
+.loginDiv {
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.input, .submitButton {
+  display:block;
+  margin:auto;
+  margin-top:1%;
+}
+.input {
+  width:60%;
+  height:25px;
+  border-radius:.5rem;
+}
+.submitButton {
+  width:35%;
+  color:black;
+  cursor: pointer;
+  background:white;
+  border:black 1px solid;
+  border-radius:.5rem;
+  padding:1%;
+}
+.submitButton:hover {
+  background:black;
+  border:white 1px solid;
+  color:white;
+  transition:.2s;
+}
+.datepicker,.timePicker {
+  height:2rem;
+  margin:0;
+}
+.dateDiv {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top:2%;
 }
-
-.App-link {
-  color: #61dafb;
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
+.navLink {
+  cursor: pointer;
+  text-decoration: underline;
+  margin:2%;
+}
+.eventDiv {
+  display:flex;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+}
+.eventTopLink {
+  cursor:pointer;
+  text-decoration: underline;
+  color:blue;
+  font-size:1.2rem;
+  border:solid blue 1px;
+  padding:1%;
+  border-radius: .5rem;
+  background: white;
+}
+.eventTopLink:hover {
+  background:blue;
+  color:white;
+  border:white 1px solid;
+  border:solid white 1px;
+  transition:.2s;
+}
+.messageDiv {
+  width:75%;
+  margin:auto;
+  background:#BE1015;;
+  border-radius: .5rem;
+}
+.message {
+  color:white;
+  padding:2%;
+}
+.siteLink {
+  font-size:1.2rem;
+  margin:1%
+}
+.select {
+  width:50%;
+  margin: auto;
+}
+.eventInput {
+  margin-top:2%;
+  margin-bottom:2%;
+  height:2rem;
+  border-radius:.25rem;
+  width:50%;
+  border:1px solid blue;
+  padding-left:1%;
+  font-size:1rem;
+}
+.outerTimeDiv {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding:2%;
+}
+.innerTimeDiv {
+  display: flex;
+  flex-direction: column;
+}
+.timePicker {
+  background:white;
+}
+.spanHeader {
+  font-weight: 700;
+  font-size:1.1rem;
+}
+@media only screen and (min-width:400px) {
+  .input {
+    width:45%;
   }
-  to {
-    transform: rotate(360deg);
+  .submitButton {
+    width:35%
+  }
+}
+@media only screen and (min-width:768px) {
+  .input {
+    width:35%;
+  }
+  .submitButton {
+    width:15%
+  }
+  @media only screen and (min-width:1000px) {
+    .input {
+      width:25%;
+    }
   }
 }
