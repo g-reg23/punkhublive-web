@@ -3,13 +3,13 @@ import '../index.css';
 import '../App.css';
 // import {Link} from 'react-router-dom';
 import Select from 'react-select'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+// import "react-datepicker/dist/react-datepicker.css";
 import TimePicker from 'react-time-picker';
 import {useStore} from '../store.js';
+import { DatePicker } from 'react-rainbow-components';
 
 const CreateEvent = () => {
-  const bandsFetched = useStore(state => state.bandsFetched);
   const bands = useStore(state => state.bands);
   const [bandSelected, selectBand] = useState(-1);
   const options = [
@@ -30,7 +30,7 @@ const CreateEvent = () => {
       <div className='eventForm'>
         <Select className='select' options={options} placeholder='Event Type' />
         <input className='eventInput' placeholder='Event Name' />
-        {bandsFetched ?
+        {bands[0] > 0 ?
         <Select className='select' options={bandList} placeholder='Select The Band' onChange={selection => selectBand(selection.value)} />
         : null}
         {bandSelected >= 0 ?
@@ -40,7 +40,7 @@ const CreateEvent = () => {
         <Select className='select' options={options2} placeholder='Stream Type' />
         <div className='dateDiv'>
           <span className='spanHeader'>Event Date</span>
-          <DatePicker className="datepicker" selected={date} onChange={date => setDate(date)} />
+          <DatePicker className="datepicker" value={date} onChange={date => setDate(date)} />
         </div>
         <div className='outerTimeDiv'>
           <div className='innerTimeDiv'>
@@ -53,7 +53,7 @@ const CreateEvent = () => {
             />
           </div>
           <div className='innerTimeDiv'>
-            <span className='spanHeader' c>End Time</span>
+            <span className='spanHeader'>End Time</span>
             <TimePicker
             onChange={setTime2}
             value={time2}

@@ -47,6 +47,9 @@ body {
   display: flex;
   flex-direction: column;
   margin-top:2%;
+  width:50%;
+  margin:auto;
+  padding:2%;
 }
 .flexRow {
   display: flex;
