@@ -1,6 +1,5 @@
 
-import React, {useState, useRef, useEffect} from 'react';
-import ReactDOM from 'react-dom';
+import React, {useState, useRef} from 'react';
 import '../index.css';
 import '../App.css';
 import MediaCapturer from 'react-multimedia-capture';
@@ -8,17 +7,14 @@ import {Link} from 'react-router-dom';
 
 
 const Video = () => {
-  const [srcObj, setSrcObj] = useState('');
   const [granted, setGranted] = useState(false);
   const [rejectedReason, setReason] = useState('');
   const [recording, setRecording] = useState(false);
   const [paused, setPaused] = useState(false);
   const [videos, setVideos] = useState([]);
-  const [fullBlob, setBlob] = useState(new Blob());
   // const myRef = React.createRef();
   const myRef = useRef(null);
   const mediaRef = useRef(null);
-  const chunks = [];
   const handleGranted = () => {
     setGranted(true);
   }
@@ -33,13 +29,11 @@ const Video = () => {
     setStreamToVideo(stream);
   }
   const setStreamToVideo = stream => {
-
-		let video = myRef;
     console.log(stream);
     console.log(typeof stream);
 		myRef.current.srcObject = stream;
     mediaRef.current.mediaRecorder.ondataavailable = e => {
-      console.log(e.data)
+      onData(e.data);
     };
 	}
   const handleStop = blob => {
@@ -111,7 +105,7 @@ const Video = () => {
                       <video ref={myRef} autoPlay></video><br />
                         {!videos.length > 0 ? null :
                           videos.map((vid,i) =>
-                            <a key={i} href={vid} target='_blank'>Video {i+1}</a>
+                            <a key={i} href={vid} target='_blank' rel="noreferrer">Video {i+1}</a>
                           )
                         }
                   </div>

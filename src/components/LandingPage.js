@@ -1,25 +1,18 @@
-import React, {useState, useEffect} from 'react';
-import ReactDOM from 'react-dom';
+import React, {useState} from 'react';
 import '../index.css';
 import '../App.css';
-import {Link} from 'react-router-dom';
 import Dashboard from './Dashboard';
 import Login from './Login';
 import {useStore} from '../store.js';
 import axios from 'axios'
 
 const LandingPage = () => {
-  const [isLoggedIn, setLogIn] = useState(false);
   const user = useStore(state => state.user);
   const setUser = useStore(state => state.setUser);
   const [message, setMessage] = useState('');
   // const [user, setUser] = useState({});
   const logIn = async (email, pass) => {
     // setLogIn(true);
-    const data = {
-      email: email,
-      password: pass
-    }
     await axios.post('http://localhost:5000/api/v1/auth/login',
     {email: email, password:pass},
     {"content-type": "application/json"},)

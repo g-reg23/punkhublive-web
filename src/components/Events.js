@@ -10,21 +10,23 @@ const Events = () => {
   const [index, setIndex] = useState(0);
   const bandsFetched = useStore(state => state.bandsFetched);
   const setBandsFetched = useStore(state => state.setBandsFetched);
-  const bands = useStore(state => state.bands);
   const setBands = useStore(state => state.setBands);
-  useEffect(async () => {
+  useEffect(() => {
     if (!bandsFetched) {
-      axios.get("http://localhost:5000/api/v1/bands/")
-        .then(res => {
-          let newArr = res.data.data;
-          setBandsFetched(true);
-          setBands(newArr);
-        })
-        .catch(err => {
-          console.log(err.message);
-        })
+      const getBands = async () => {
+        axios.get("http://localhost:5000/api/v1/bands/")
+          .then(res => {
+            let newArr = res.data.data;
+            setBandsFetched(true);
+            setBands(newArr);
+          })
+          .catch(err => {
+            console.log(err.message);
+          })
+      }
+      getBands();
     }
-  },[bandsFetched]);
+  },[bandsFetched, setBands, setBandsFetched]);
   return (
     <div className='eventsDiv'>
       <h1>Events</h1>
