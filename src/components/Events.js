@@ -14,7 +14,7 @@ const Events = () => {
   useEffect(() => {
     if (!bandsFetched) {
       const getBands = async () => {
-        axios.get("http://localhost:5000/api/v1/bands/")
+        axios.get("https://punkhublive.herokuapp.com/api/v1/bands/")
           .then(res => {
             let newArr = res.data.data;
             setBandsFetched(true);

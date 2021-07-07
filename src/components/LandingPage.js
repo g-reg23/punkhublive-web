@@ -13,11 +13,11 @@ const LandingPage = () => {
   // const [user, setUser] = useState({});
   const logIn = async (email, pass) => {
     // setLogIn(true);
-    await axios.post('http://localhost:5000/api/v1/auth/login',
+    await axios.post('https://punkhublive.herokuapp.com/api/v1/auth/login',
     {email: email, password:pass},
     {"content-type": "application/json"},)
       .then(async res => {
-        return await axios.get('http://localhost:5000/api/v1/auth/me',{
+        return await axios.get('https://punkhublive.herokuapp.com/api/v1/auth/me',{
         headers: {Authorization: `Bearer ${res.data.token}`}})
       })
       .then(res => {
@@ -37,7 +37,6 @@ const LandingPage = () => {
       })
       .catch(err => {
         console.log(err.message);
-        console.log('caught');
         setMessage("Invalid login");
       })
   }
