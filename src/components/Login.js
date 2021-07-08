@@ -6,14 +6,20 @@ const Login = (props) => {
   const [email, setEmail] = useState('');
   const [pass, setPass]  = useState('');
   const [message, setMessage] = useState('');
+  const messageTimer = message => {
+    setTimeout(() => {
+      setMessage('');
+    }, 5000);
+    setMessage(message);
+  }
   const handleSubmit = () => {
     let re = /\S+@\S+\.\S+/;
     if(!re.test(email)) {
-      setMessage("Email must be in email format.");
+      messageTimer("Email must be in email format.");
       return;
     }
     if (pass.length < 6) {
-      setMessage("Password must be at least 6 characters long.");
+      messageTimer("Password must be at least 6 characters long.");
       return;
     }
     setMessage('');

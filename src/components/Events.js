@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import '../index.css';
 import '../App.css';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import CreateEvent from './CreateEvent';
 import {useStore} from '../store.js';
 import axios from 'axios'
@@ -11,12 +11,14 @@ const Events = () => {
   const bandsFetched = useStore(state => state.bandsFetched);
   const setBandsFetched = useStore(state => state.setBandsFetched);
   const setBands = useStore(state => state.setBands);
+  const user = useStore(state => state.user);
   useEffect(() => {
     if (!bandsFetched) {
       const getBands = async () => {
         axios.get("https://punkhublive.herokuapp.com/api/v1/bands/")
           .then(res => {
             let newArr = res.data.data;
+            console.log(res.data.data);
             setBandsFetched(true);
             setBands(newArr);
           })
@@ -27,8 +29,16 @@ const Events = () => {
       getBands();
     }
   },[bandsFetched, setBands, setBandsFetched]);
+  // console.log(bands);
   return (
     <div className='eventsDiv'>
+      {user.authed ? null :
+        <Redirect
+          to={{
+            pathname: "/",
+          }}
+        />
+      }
       <h1>Events</h1>
       <Link to='/' className='navLink'>Back to Dashboard</Link>
       <div className='flexRow'>
