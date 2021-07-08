@@ -56,6 +56,17 @@ const CreateEvent = () => {
     }, 5000);
     setMessage(message);
   }
+  const resetInputs = () => {
+    setTime('18:00');
+    setTime2('19:00');
+    setDate(new Date())
+    setName('');
+    setDesc('');
+    setStream('');
+    setEvent('');
+    setDuration('');
+    setPrice('');
+  }
   // Checks if all inputs have values.
   // Checks type of event then sends post request accordingly.
   const handleSubmit = async () => {
@@ -99,6 +110,7 @@ const CreateEvent = () => {
       }, {Authorization: `Bearer ${user.token}`})
         .then(res => {
           setMessage('Event Created!!!');
+          resetInputs();
         })
         .catch(err => {
           console.log(err)
@@ -125,6 +137,7 @@ const CreateEvent = () => {
       }, {Authorization: `Bearer ${user.token}`})
         .then(res => {
           setMessage('Event Created!!!');
+          resetInputs()
         })
         .catch(err => {
           messageTimer('Event not created, Reason: ' + err.message);
