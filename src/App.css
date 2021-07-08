@@ -100,12 +100,15 @@ body {
   width:50%;
   margin: auto;
 }
+.select {
+  width:80%;
+}
 .eventInput {
   margin-top:2%;
   margin-bottom:2%;
   height:2rem;
   border-radius:.25rem;
-  width:50%;
+  width:80%;
   border:1px solid blue;
   padding-left:1%;
   font-size:1rem;
@@ -137,6 +140,9 @@ body {
   .submitButton {
     width:35%
   }
+  .eventInput, .select {
+    width:70%;
+  }
 }
 @media only screen and (min-width:768px) {
   .input {
@@ -145,9 +151,15 @@ body {
   .submitButton {
     width:15%
   }
+  .eventInput, .select {
+    width:60%;
+  }
+}
   @media only screen and (min-width:1000px) {
-    .input {
-      width:25%;
-    }
+  .input {
+    width:25%;
+  }
+  .eventInput, .select {
+    width:50%;
   }
 }
