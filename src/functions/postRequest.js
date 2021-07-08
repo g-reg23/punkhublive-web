@@ -1,6 +1,6 @@
 import axios from 'axios'
 const postRequest = async (route, data, headerData) => {
-  const post = await axios.post(`http://punkhublive.herokuapp.com/api/v1/${route}`,
+  const post = await axios.post(`https://punkhublive.herokuapp.com/api/v1/${route}`,
   data,
   {headers:headerData}
   )
