@@ -14,6 +14,11 @@ body {
 .loginDiv {
 
 }
+.dashLinkDiv {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .input, .submitButton {
   display:block;
   margin:auto;
@@ -93,7 +98,7 @@ body {
   padding:2%;
 }
 .siteLink {
-  font-size:1.2rem;
+  font-size:1.35rem;
   margin:1%
 }
 .select {

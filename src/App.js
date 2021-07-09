@@ -2,8 +2,10 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LandingPage from './components/LandingPage';
-import Events from './components/Events';
 import Video from './components/Video';
+import Events from './components/Events';
+import Users from './components/Users';
+import Bands from './components/Bands';
 
 const App = () => {
     return (
@@ -19,6 +21,8 @@ const App = () => {
               <Route exact path='/' render={(props)=><LandingPage />} />
               <Route exact path='/events' render={(props)=><Events />} />
               <Route exact path='/video' render={(props)=><Video />} />
+              <Route exact path='/bands' render={(props)=><Bands />} />
+              <Route exact path='/Users' render={(props)=><Users />} />
           </Switch>
         </div>
       </Router>

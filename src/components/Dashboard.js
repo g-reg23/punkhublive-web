@@ -10,8 +10,12 @@ const Dashboard = () => {
     <div className='dashDiv'>
       <h1>{user.role.toUpperCase()} Dashboard</h1>
       <h2>Hi, {user.name}</h2>
-      <Link to='/events' className='siteLink'>Events</Link>
-      <Link to='/video' className='siteLink'>Video</Link>
+      <div className="dashLinkDiv">
+        <Link to='/Users' className='siteLink'>Users</Link>
+        <Link to='/bands' className='siteLink'>Bands</Link>
+        <Link to='/events' className='siteLink'>Events</Link>
+        <Link to='/video' className='siteLink'>Video</Link>
+      </div>
     </div>
   )
 }

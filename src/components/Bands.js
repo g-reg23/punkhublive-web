@@ -2,11 +2,10 @@ import React, {useState, useEffect} from 'react';
 import '../index.css';
 import '../App.css';
 import {Link, Redirect} from 'react-router-dom'
-import CreateEvent from './CreateEvent';
 import {useStore} from '../store.js';
 import axios from 'axios'
 
-const Events = () => {
+const Bands = () => {
   const [index, setIndex] = useState(0);
   const bandsFetched = useStore(state => state.bandsFetched);
   const setBandsFetched = useStore(state => state.setBandsFetched);
@@ -29,8 +28,7 @@ const Events = () => {
       getBands();
     }
   },[bandsFetched, setBands, setBandsFetched]);
-  // console.log(bands);
-  return (
+  return(
     <div className='eventsDiv'>
       {user.authed ? null :
         <Redirect
@@ -42,16 +40,16 @@ const Events = () => {
       <h1>Events</h1>
       <Link to='/' className='navLink'>Back to Dashboard</Link>
       <div className='flexRow'>
-        <p onClick={() => setIndex(1)} className='eventTopLink'>Create Event</p>
-        <p onClick={() => setIndex(2)} className='eventTopLink'>Edit Event</p>
-        <p onClick={() => setIndex(3)} className='eventTopLink'>Delete Event</p>
+        <p onClick={() => setIndex(1)} className='eventTopLink'>Create Band</p>
+        <p onClick={() => setIndex(2)} className='eventTopLink'>Edit Band</p>
+        <p onClick={() => setIndex(3)} className='eventTopLink'>Delete Band</p>
       </div>
       {index === 0 ? <p>Click an action above to work on an event.</p> :
-      index === 1 ? <CreateEvent /> :
-      index ===2 ?<p>Edit Event action is not yet implemented.</p> :
-      <p>Delete Event action is not yet implemented.</p>
+      index === 1 ? <p>This action is not yet implemented.</p> :
+      <p>This action is not yet implemented.</p>
       }
     </div>
   )
 }
-export default Events;
+
+export default Bands;
